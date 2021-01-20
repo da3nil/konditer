@@ -2,10 +2,11 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Models\BlogPost;
 use Faker\Generator as Faker;
 
-$factory->define(\App\Models\BlogPost::class, function (Faker $faker) {
+$factory->define(
+    BlogPost::class, function (Faker $faker) {
     return [
         'name'      =>  $faker->name,
         'content'   =>  $faker->text

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ShopOrder;
 use Illuminate\Database\Seeder;
 
 class ShopOrderSeeder extends Seeder
@@ -11,6 +12,6 @@ class ShopOrderSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\ShopOrder::class, 3);
+        factory(ShopOrder::class, 3)->create()->make();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ShopCategory;
 use Illuminate\Database\Seeder;
 
 class ShopCategorySeeder extends Seeder
@@ -11,6 +12,6 @@ class ShopCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(ShopCategory::class, 3)->create()->make();
     }
 }
