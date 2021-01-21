@@ -18,3 +18,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/menu', function () {
+    // TODO: Add final class MenuController
+});
+
+Route::get('/about', function (){
+
+});
+
+Route::get('/service', function () {
+
+});
+
+Route::get('/contact', function () {
+
+});

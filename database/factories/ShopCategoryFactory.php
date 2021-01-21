@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(ShopCategory::class, function (Faker $faker) {
     return [
-        'name'          =>  $faker->name,
+        'name'          =>  $faker->word,
         'description'   =>  $faker->text,
         'img'           =>  'default.png'
     ];

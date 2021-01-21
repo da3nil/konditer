@@ -16,6 +16,7 @@ class CreateShopCategoriesTable extends Migration
         Schema::create('shop_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->default('Неизвестно');
+            $table->string('slug')->unique();
             $table->text('description');
             $table->text('img');
             $table->timestamps();
