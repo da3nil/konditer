@@ -11,6 +11,12 @@
 |
 */
 
+use App\Http\Controllers\Web\MenuController;
+use App\Http\Controllers\Web\ShopCategoryController;
+use App\Http\Controllers\Web\ShopProductController;
+use App\Models\ShopCategory;
+use App\Models\ShopProduct;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,9 +25,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/menu', function () {
-    // TODO: Add final class MenuController
-});
+Route::get('/menu', 'Web\ShopCategoryController@index');
+
+Route::get('/menu/{slug}', 'Web\ShopCategoryController@show');
+
+Route::get('/menu/{id}', 'Web\ShopProductController@show');
 
 Route::get('/about', function (){
 
@@ -33,4 +41,9 @@ Route::get('/service', function () {
 
 Route::get('/contact', function () {
 
+});
+
+Route::group(['prefix' => '/admin', 'name' => 'admin.'], function () {
+    Route::resource('/category', 'Web\ShopCategoryController')
+        ->except('show')->names('admin.category');
 });
