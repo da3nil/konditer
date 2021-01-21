@@ -21,59 +21,87 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+        <div id="header">
+            <div>
+                <div>
+                    <div id="logo">
+                        <a href="index.html"><img src="img/logo.png" alt="Logo"/></a>
+                    </div>
+                    <div>
+                        <div>
+                            <a href="signup.html">Регистрация</a>
+                            <a href="signin.html" class="last">Вход</a>
+                        </div>
+                        <form action="#">
+                            <input type="text" id="search" maxlength="30" />
+                            <input type="submit" value="" id="searchbtn" />
+                        </form>
+                    </div>
+                </div>
+                <ul>
+                    <li class="current"><a href="index.html">Главная</a></li>
+                    <li><a href="product.html">Кондитерская</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="services.html">Сервисы</a></li>
+                    <li><a href="blog.html">Новости</a></li>
+                    <li><a href="contact.html">Связь с нами</a></li>
+                </ul>
+                <div id="section" class="content-box">
+                    <ul>
+                        <li><a href="pirVLAD.php">Пироги</a></li>
+                        <li><a href="croissants.php">Круассаны</a></li>
+                        <li><a href="cakes.php">Пирожные</a></li>
+                        <li><a href="torties.php">Торты</a></li>
+                        <li><a href="cupcakes.php">Капкейки</a></li>
+                        <li><a href="cookies.php">Кексы</a></li>
+                        <li><a href="tiramisu.php">Тирамису</a></li>
+                        <li><a href="cheesecakes.php">Чизкейки</a></li>
+                        <li><a href="ponchiki.php">Пончики</a></li>
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                    <a href="index.html"><img class="content-box" src="img/23.png" style="box-sizing: content-box" alt="Image"/></a>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div id="content">
+            <div class="home">
+                @yield('content')
+{{--                <div class="aside">--}}
+{{--                    <h1>Добро пожаловать на наш сайт</h1>--}}
+{{--                    <p><b>Конди́терские изде́лия</b> — продукты питания как правило с большим содержанием сахара, отличающиеся высокой калорийностью и усваиваемостью. Бывают сахаристые, мучные кондитерские изделия, шоколад, какао.</p>--}}
+{{--                    <p>Компания <b>Candy Shop</b> – это команда профессионалов, знающих свое дело и занимающихся производством и реализацией сувенирного шоколада, оригинальных подарочных наборов и тематических баночек, постоянно генерируя новые интересные идеи и воплощая их в жизнь, даря радость от подарков всем желающим.</p>--}}
+{{--                    <p>Мы – не просто интернет-магазин подарков, а настоящая находка, которая поможет вам с легкостью справиться с предпраздничной суетой.  Эта компания создана креативными людьми, которые хотят вам помочь отойти от банальных сюрпризов. Candy Shop занимается созданием вкусных и необычных презентов, которые, обязательно, порадуют всех.</p>--}}
+{{--                </div>--}}
+{{--                <div class="section">--}}
+{{--                    <div>--}}
+{{--                        <h2>Натуральная продукция</h2>--}}
+{{--                        <p>Мы принципиально готовим каждый десерт из отборных натуральных компонентов. Масло, молоко, сливки, фрукты и фруктовые пюре, орехи, ягоды, шоколад и какао - все на высшем уровне, чтобы вкус был &#171;как дома&#187;. Ассортимент кондитерской растет. Капкейки, эклеры, пирожные, пряники, торты ... Вы можете ходить к нам год и не успеть все попробовать.</p>--}}
+{{--                    </div>--}}
+{{--                    <ul>--}}
+{{--                        <li class="first">--}}
+{{--                            <a href="index.html"><img src="img/cake.png" alt="Image" /></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="index.html"><img src="img/burgercake.png" alt="Image" /></a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="index.html"><img src="img/cupcake.png" alt="Image" /></a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+            </div>
+        </div>
+        <div id="footer">
+            <div id="navigation">
+                <div>
+                    <ul>
+                    </ul>
+                    <p>Copyright &copy; 2020-2021 Все права защищены</p>
+                </div>
+            </div>
+        </div>
 
         <main class="py-4">
-            @yield('content')
+
         </main>
     </div>
 </body>

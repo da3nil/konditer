@@ -1,0 +1,7 @@
+.content-box {
+    box-sizing: content-box !important;
+}
+
+.content-box *, .content-box::before, .content-box::after {
+    box-sizing: content-box !important;
+}
