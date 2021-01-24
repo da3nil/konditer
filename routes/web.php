@@ -17,9 +17,7 @@ use App\Http\Controllers\Web\ShopProductController;
 use App\Models\ShopCategory;
 use App\Models\ShopProduct;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Web\ShowWelcome')->name('welcome');
 
 Auth::routes();
 
@@ -27,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/menu', 'Web\ShopCategoryController@index');
 
-Route::get('/menu/{slug}', 'Web\ShopCategoryController@show');
+Route::get('/menu/{slug}', 'Web\ShopCategoryController@show')->name('menu');
 
 Route::get('/menu/{id}', 'Web\ShopProductController@show');
 
