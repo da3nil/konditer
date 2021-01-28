@@ -23,23 +23,27 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/menu', 'Web\ShopCategoryController@index');
+Route::get('/menu', 'Web\ShopCategoryController@index')->name('menu.index');
 
-Route::get('/menu/{slug}', 'Web\ShopCategoryController@show')->name('menu');
+Route::get('/menu/{slug}', 'Web\ShopCategoryController@show')->name('menu.show');
 
 Route::get('/menu/{id}', 'Web\ShopProductController@show');
 
 Route::get('/about', function (){
 
-});
+})->name('about');
 
 Route::get('/service', function () {
 
-});
+})->name('service');
 
 Route::get('/contact', function () {
 
-});
+})->name('contact');
+
+Route::get('/blog', function () {
+
+})->name('blog');
 
 Route::group(['prefix' => '/admin', 'name' => 'admin.'], function () {
     Route::resource('/category', 'Web\ShopCategoryController')

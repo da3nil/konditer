@@ -39,20 +39,23 @@
                     </div>
                 </div>
                 <ul>
-                    <li class="current"><a href="index.html">Главная</a></li>
-                    <li><a href="product.html">Кондитерская</a></li>
-                    <li><a href="about.html">О нас</a></li>
-                    <li><a href="services.html">Сервисы</a></li>
-                    <li><a href="blog.html">Новости</a></li>
-                    <li><a href="contact.html">Связь с нами</a></li>
+                    <li class="current"><a href="{{ route('welcome') }}">Главная</a></li>
+                    <li><a href="{{ route('menu.index') }}">Кондитерская</a></li>
+                    <li><a href="{{ route('about') }}">О нас</a></li>
+                    <li><a href="{{ route('service') }}">Сервисы</a></li>
+                    <li><a href="{{ route('blog') }}">Новости</a></li>
+                    <li><a href="{{ route('contact') }}">Связь с нами</a></li>
                 </ul>
                 @if(Request::route()->getName() === "welcome")
                 <div id="section" class="content-box">
                     <ul>
                         @php /** @var $item \App\Models\ShopCategory */ @endphp
                         @foreach($data as $item)
-                            <li><a href="{{ route('menu', ['slug' => $item->slug]) }}">{{$item->name}}</a></li>
+                            <li><a href="{{ route('menu.show', ['slug' => $item->slug]) }}">{{$item->name}}</a></li>
                         @endforeach
+                        @if (count($data) === 8)
+                            <li><a href="{{ route('menu.index') }}">И многое другое!</a></li>--}}
+                        @endif
 {{--                        <li><a href="pirVLAD.php">Пироги</a></li>--}}
 {{--                        <li><a href="croissants.php">Круассаны</a></li>--}}
 {{--                        <li><a href="cakes.php">Пирожные</a></li>--}}

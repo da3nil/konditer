@@ -16,7 +16,7 @@ class ShowWelcome extends Controller
      */
     public function __invoke(Request $request)
     {
-        $data = ShopCategory::all();
+        $data = ShopCategory::take(8)->get();
 
         return view('welcome', compact('data'));
     }

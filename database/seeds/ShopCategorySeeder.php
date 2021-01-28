@@ -12,6 +12,6 @@ class ShopCategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(ShopCategory::class, 3)->create()->make();
+        factory(ShopCategory::class, 20)->create()->make();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\ShopCategory;
 use Illuminate\Http\Request;
 
 class ShopCategoryController extends Controller
@@ -10,11 +11,13 @@ class ShopCategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $data = ShopCategory::paginate(10);
+
+        return view('shop.menu', compact('data'));
     }
 
     /**

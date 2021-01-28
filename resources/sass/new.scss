@@ -5,3 +5,18 @@
 .content-box *, .content-box::before, .content-box::after {
     box-sizing: content-box !important;
 }
+
+#category_index ul li {
+    float: left;
+    margin-bottom: 1rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    height: 270px !important;
+    width: 430px !important;
+
+    background: #ffffff;
+
+    & p {
+      height: 165px;
+    }
+}
