@@ -12415,3 +12415,37 @@ span {
   height: 165px;
 }
 
+.pagination li {
+  height: 33px !important;
+  width: auto !important;
+}
+
+.pagination li span {
+  font-size: 12px !important;
+}
+
+.pagination li:active,
+.pagination li:focus {
+  content: none !important;
+  outline: none !important;
+}
+
+.pagination li a {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.pagination li a:active,
+.pagination li a:focus {
+  content: none !important;
+  outline: none !important;
+}
+
+.pagination .active {
+  height: 33px;
+}
+
+.pagination .active span {
+  font-size: 12px !important;
+}
+

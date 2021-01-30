@@ -20,3 +20,33 @@
       height: 165px;
     }
 }
+
+.pagination li {
+    height: 33px !important;
+    width: auto !important;
+    & span {
+        font-size: 12px !important;
+    }
+
+    &:active, &:focus {
+        content: none !important;
+        outline: none !important;
+    }
+
+    & a {
+        outline: none !important;
+        box-shadow: none !important;
+
+        &:active, &:focus {
+            content: none !important;
+            outline: none !important;
+        }
+    }
+}
+
+.pagination .active {
+    height: 33px;
+    & span {
+        font-size: 12px !important;
+    }
+}

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -25,12 +25,24 @@
             <div>
                 <div>
                     <div id="logo">
-                        <a href="index.html"><img src="{{ asset('images/logo.png') }}" alt="Logo"/></a>
+                        <a href="{{ route('welcome') }}"><img src="{{ asset('images/logo.png') }}" alt="Logo"/></a>
                     </div>
                     <div>
                         <div>
-                            <a href="signup.html">Регистрация</a>
-                            <a href="signin.html" class="last">Вход</a>
+                            @guest
+                                <a href="{{ route('register') }}">Регистрация</a>
+                                <a href="{{ route('login') }}" class="last">Вход</a>
+                            @endguest
+                            @auth
+                                    <a href="{{ route('home') }}">Мой профиль</a>
+                                    <a href="{{ route('logout') }}" class="last"
+                                       onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">{{ __('Выход') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            @endauth
+
                         </div>
                         <form action="#">
                             <input type="text" id="search" maxlength="30" />
@@ -39,12 +51,12 @@
                     </div>
                 </div>
                 <ul>
-                    <li class="current"><a href="{{ route('welcome') }}">Главная</a></li>
-                    <li><a href="{{ route('menu.index') }}">Кондитерская</a></li>
-                    <li><a href="{{ route('about') }}">О нас</a></li>
-                    <li><a href="{{ route('service') }}">Сервисы</a></li>
-                    <li><a href="{{ route('blog') }}">Новости</a></li>
-                    <li><a href="{{ route('contact') }}">Связь с нами</a></li>
+                    <li @if(Request::route()->getName() === "welcome")class="current"@endif><a href="{{ route('welcome') }}">Главная</a></li>
+                    <li @if(Request::route()->getName() === "menu.index" or Request::route()->getName() === "menu.show")class="current"@endif><a href="{{ route('menu.index') }}">Кондитерская</a></li>
+                    <li @if(Request::route()->getName() === "about")class="current"@endif><a href="{{ route('about') }}">О нас</a></li>
+                    <li @if(Request::route()->getName() === "service")class="current"@endif><a href="{{ route('service') }}">Сервисы</a></li>
+                    <li @if(Request::route()->getName() === "blog")class="current"@endif><a href="{{ route('blog') }}">Новости</a></li>
+                    <li @if(Request::route()->getName() === "contact")class="current"@endif><a href="{{ route('contact') }}">Связь с нами</a></li>
                 </ul>
                 @if(Request::route()->getName() === "welcome")
                 <div id="section" class="content-box">
@@ -76,9 +88,7 @@
             </div>
         </div>
         <div id="content">
-            <div class="home">
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
         <div id="footer">
             <div id="navigation">

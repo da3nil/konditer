@@ -27,18 +27,18 @@ Route::get('/menu', 'Web\ShopCategoryController@index')->name('menu.index');
 
 Route::get('/menu/{slug}', 'Web\ShopCategoryController@show')->name('menu.show');
 
-Route::get('/menu/{id}', 'Web\ShopProductController@show');
+Route::get('/menu/{id}', 'Web\ShopProductController@show')->name('category.show');
 
 Route::get('/about', function (){
-
+    return view('info.about');
 })->name('about');
 
 Route::get('/service', function () {
-
+    return view('info.service');
 })->name('service');
 
 Route::get('/contact', function () {
-
+    return view('info.contact');
 })->name('contact');
 
 Route::get('/blog', function () {
