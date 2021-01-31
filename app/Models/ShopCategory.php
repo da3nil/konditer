@@ -25,6 +25,8 @@ use Spatie\Sluggable\SlugOptions;
  * @method static \Illuminate\Database\Eloquent\Builder|ShopCategory whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ShopCategory whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $slug
+ * @method static \Illuminate\Database\Eloquent\Builder|ShopCategory whereSlug($value)
  */
 class ShopCategory extends Model
 {

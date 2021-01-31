@@ -17,6 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $name
+ * @property string $content
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereName($value)
  */
 class BlogPost extends Model
 {
