@@ -46,6 +46,10 @@ Route::get('/blog', function () {
 })->name('blog');
 
 Route::group(['prefix' => '/admin', 'name' => 'admin.'], function () {
+    Route::get('/', function (){
+        return view('admin.home');
+    });
+
     Route::resource('/category', 'Web\ShopCategoryController')
         ->except('show')->names('admin.category');
 });

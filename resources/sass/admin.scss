@@ -1,0 +1,20 @@
+//// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+//
+//// Variables
+//@import 'variables';
+//
+//// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+// Admin LTE
+//@import "~admin-lte/build/scss/adminlte";
+@import "admin-lte/bootstrap";
+//
+@import "admin-lte/fonts";
+
+@import "admin-lte/ionicons";
+
+@import "admin-lte/main";
+
+@import "admin-lte/skin-blue";
