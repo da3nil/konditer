@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -28,11 +28,11 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{ route('admin.home') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
+            <span class="logo-mini"><b>A</b>П</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><b>Админ</b> панель</span>
         </a>
 
         <!-- Header Navbar -->
@@ -60,7 +60,8 @@
                                         <a href="#">
                                             <div class="pull-left">
                                                 <!-- User Image -->
-                                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="{{ asset('images/user/user.png') }}" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <!-- Message title and timestamp -->
                                             <h4>
@@ -125,7 +126,9 @@
                                             <!-- The progress bar -->
                                             <div class="progress xs">
                                                 <!-- Change the css width attribute to simulate progress -->
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">20% Complete</span>
                                                 </div>
                                             </div>
@@ -144,18 +147,18 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img src="{{ asset('images/user/user.png') }}" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="{{ asset('images/user/user.png') }}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    {{ Auth::user()->name }}
+{{--                                    <small>Member since Nov. 2012</small>--}}
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -201,44 +204,36 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="{{ asset('images/user/user.png') }}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p>{{ Auth::user()->name }}</p>
                     <!-- Status -->
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
 
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-                </div>
-            </form>
-            <!-- /.search form -->
-
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu tree" data-widget="tree">
-                <li class="header">HEADER</li>
+                <li class="header">Меню</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
-                    </ul>
-                </li>
+                <li @if(Request::route()->getName() === 'admin.home')class="active"@endif><a href="{{ route('admin.home') }}"><i class="fa fa-link"></i> <span>Панель управления</span></a></li>
+                <li @if((Request::is('admin/categories/*') || Request::is('admin/categories')))class="active"@endif><a href="{{ route('admin.categories.index') }}"><i class="fa fa-link"></i> <span>Категории</span></a></li>
+                <li @if((Request::is('admin/products/*') || Request::is('admin/products')))class="active"@endif><a href="{{ route('admin.products.index') }}"><i class="fa fa-link"></i> <span>Товары</span></a></li>
+                <li @if((Request::is('admin/orders/*') || Request::is('admin/orders')))class="active"@endif><a href="{{ route('admin.orders.index') }}"><i class="fa fa-link"></i> <span>Заказы</span></a></li>
+                <li @if((Request::is('admin/users/*') || Request::is('admin/users')))class="active"@endif><a href="{{ route('admin.users.index') }}"><i class="fa fa-link"></i> <span>Пользователи</span></a></li>
+                <li @if((Request::is('admin/blog/*') || Request::is('admin/blog')))class="active"@endif><a href="{{ route('admin.blog.index') }}"><i class="fa fa-link"></i> <span>Новости</span></a></li>
+{{--                <li class="treeview">--}}
+{{--                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
+{{--                        <span class="pull-right-container">--}}
+{{--                <i class="fa fa-angle-left pull-right"></i>--}}
+{{--              </span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="treeview-menu">--}}
+{{--                        <li><a href="#">Link in level 2</a></li>--}}
+{{--                        <li><a href="#">Link in level 2</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -247,27 +242,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="min-height: 301px;">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Page Header
-                <small>Optional description</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content container-fluid">
-
-            <!--------------------------
-              | Your Page Content Here |
-              -------------------------->
-
-        </section>
-        <!-- /.content -->
+        @yield('content')
     </div>
     <!-- /.content-wrapper -->
 
@@ -359,20 +334,6 @@
     <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
-<script src="https://adminlte.io/themes/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="https://adminlte.io/themes/AdminLTE/dist/js/adminlte.min.js"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
-
 
 </body>
 

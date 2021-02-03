@@ -45,11 +45,23 @@ Route::get('/blog', function () {
 
 })->name('blog');
 
-Route::group(['prefix' => '/admin', 'name' => 'admin.'], function () {
+Route::group(['prefix' => '/admin', 'name' => 'admin.', 'middleware' => 'auth'], function () {
     Route::get('/', function (){
         return view('admin.home');
-    });
+    })->name('admin.home');
 
-    Route::resource('/category', 'Web\ShopCategoryController')
-        ->except('show')->names('admin.category');
+    Route::resource('/categories', 'Web\Admin\ShopCategoryController')
+        ->names('admin.categories');
+
+    Route::resource('/products', 'Web\Admin\ShopProductController')
+        ->names('admin.products');
+
+    Route::resource('/orders', 'Web\Admin\ShopOrderController')
+        ->names('admin.orders');
+
+    Route::resource('/blog', 'Web\Admin\BlogPostController')
+        ->names('admin.blog');
+
+    Route::get('/users', 'Web\Admin\UserController@index')
+        ->name('admin.users.index');
 });

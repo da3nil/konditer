@@ -21378,3 +21378,14 @@ hr {
   background-color: #3b8ab8;
 }
 
+.mytable th {
+  margin: 0 auto !important;
+  text-align: center !important;
+  padding: 1rem !important;
+  vertical-align: inherit !important;
+}
+
+.mytable img {
+  max-height: 150px;
+}
+
