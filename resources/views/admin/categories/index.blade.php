@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>
             Категории
-            <small><a href="#" class="btn btn-block btn-info btn-lg">Добавить категорию</a></small>
+            <small><a href="{{ route('admin.categories.create') }}" class="btn btn-block btn-info btn-lg">Добавить категорию</a></small>
 
         </h1>
         <ol class="breadcrumb">
@@ -60,18 +60,22 @@
                                         @php /** @var $item \App\Models\ShopCategory */ @endphp
                                         @foreach($data as $item)
                                             <tr role="row" class="odd">
-                                                <td><img src="{{ asset('images/cake.png') }}" class="img-fluid" alt=""></td>
+                                                <td style="text-align: center; max-width: 180px; width: 180px"><img src="{{ asset('storage/' . $item->img) }}" class="img-fluid" alt=""></td>
                                                 <td class="sorting_1">{{ $item->name }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>
-                                                    <a class="btn btn-block btn-primary">
+                                                    <a class="btn btn-block btn-primary" href="{{ route('admin.categories.edit', ['category' => $item->id]) }}">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-block btn-danger">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
+                                                    <form method="post" action="{{ route('admin.categories.destroy', ['category' => $item->id]) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-block btn-danger">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

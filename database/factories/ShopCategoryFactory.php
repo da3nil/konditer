@@ -9,6 +9,6 @@ $factory->define(ShopCategory::class, function (Faker $faker) {
     return [
         'name'          =>  $faker->word,
         'description'   =>  $faker->text,
-        'img'           =>  'default.png'
+        'img'           =>  'shop_categories/food_default.png'
     ];
 });

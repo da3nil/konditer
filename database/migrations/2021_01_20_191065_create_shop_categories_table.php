@@ -19,6 +19,7 @@ class CreateShopCategoriesTable extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->text('img');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

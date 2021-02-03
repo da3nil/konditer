@@ -218,22 +218,22 @@
                 <li class="header">Меню</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li @if(Request::route()->getName() === 'admin.home')class="active"@endif><a href="{{ route('admin.home') }}"><i class="fa fa-link"></i> <span>Панель управления</span></a></li>
-                <li @if((Request::is('admin/categories/*') || Request::is('admin/categories')))class="active"@endif><a href="{{ route('admin.categories.index') }}"><i class="fa fa-link"></i> <span>Категории</span></a></li>
+                <li class="@if((Request::is('admin/categories/*') || Request::is('admin/categories'))) active @endif treeview">
+                    <a href="#">
+                        <i class="fa fa-share"></i> <span>Категории</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="@if((Request::route()->getName() === 'admin.categories.index')) active @endif"><a href="{{ route('admin.categories.index') }}"><i class="fa fa-circle-o"></i> Все категории</a></li>
+                        <li class="@if((Request::route()->getName() === 'admin.categories.create')) active @endif"><a href="{{ route('admin.categories.create') }}"><i class="fa fa-circle-o"></i> Создать категорию</a></li>
+                    </ul>
+                </li>
                 <li @if((Request::is('admin/products/*') || Request::is('admin/products')))class="active"@endif><a href="{{ route('admin.products.index') }}"><i class="fa fa-link"></i> <span>Товары</span></a></li>
                 <li @if((Request::is('admin/orders/*') || Request::is('admin/orders')))class="active"@endif><a href="{{ route('admin.orders.index') }}"><i class="fa fa-link"></i> <span>Заказы</span></a></li>
                 <li @if((Request::is('admin/users/*') || Request::is('admin/users')))class="active"@endif><a href="{{ route('admin.users.index') }}"><i class="fa fa-link"></i> <span>Пользователи</span></a></li>
                 <li @if((Request::is('admin/blog/*') || Request::is('admin/blog')))class="active"@endif><a href="{{ route('admin.blog.index') }}"><i class="fa fa-link"></i> <span>Новости</span></a></li>
-{{--                <li class="treeview">--}}
-{{--                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>--}}
-{{--                        <span class="pull-right-container">--}}
-{{--                <i class="fa fa-angle-left pull-right"></i>--}}
-{{--              </span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="treeview-menu">--}}
-{{--                        <li><a href="#">Link in level 2</a></li>--}}
-{{--                        <li><a href="#">Link in level 2</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
             </ul>
             <!-- /.sidebar-menu -->
         </section>
