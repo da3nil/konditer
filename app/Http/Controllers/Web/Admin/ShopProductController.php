@@ -16,7 +16,9 @@ class ShopProductController extends Controller
      */
     public function index()
     {
-        $data = ShopProduct::paginate(10);
+        $columns = ['id', 'name', 'price', 'img', 'description'];
+
+        $data = ShopProduct::with('shopCategory')->paginate(10);
 
         return view('admin.products.index', compact('data'));
     }

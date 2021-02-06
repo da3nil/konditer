@@ -30,5 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ShopProduct extends Model
 {
-    //
+    public function shopCategory(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo('App\Models\ShopProduct');
+    }
 }

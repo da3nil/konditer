@@ -43,4 +43,8 @@ class ShopCategory extends Model
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
+
+    public function product() {
+        return $this->hasOne('App\Models\ShopCategory');
+    }
 }

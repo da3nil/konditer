@@ -43,6 +43,11 @@
                                                 aria-label="Rendering engine: activate to sort column descending">
                                                 Название
                                             </th>
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1" aria-sort="ascending"
+                                                aria-label="Rendering engine: activate to sort column descending">
+                                                Категория
+                                            </th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                                 colspan="1" aria-label="Browser: activate to sort column ascending">
                                                 Описание
@@ -57,10 +62,11 @@
                                         </thead>
                                         <tbody>
 
-                                        @php /** @var $item \App\Models\ShopCategory */ @endphp
+                                        @php /** @var $item \App\Models\ShopProduct */ @endphp
                                         @foreach($data as $item)
                                             <tr role="row" class="odd">
                                                 <td style="text-align: center; max-width: 180px; width: 180px"><img src="{{ asset('storage/' . $item->img) }}" class="img-fluid" alt=""></td>
+                                                <td>{{ $item->shopCategory->name }}</td>
                                                 <td class="sorting_1">{{ $item->name }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>
