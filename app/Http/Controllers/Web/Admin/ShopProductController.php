@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ShopCategory;
+use App\Models\ShopProduct;
 use Illuminate\Http\Request;
 
 class ShopProductController extends Controller
@@ -10,21 +12,25 @@ class ShopProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $data = ShopProduct::paginate(10);
+
+        return view('admin.products.index', compact('data'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        $model = new ShopProduct();
+
+        return view('admin.products.create', compact('model'));
     }
 
     /**
@@ -53,11 +59,13 @@ class ShopProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function edit($id)
     {
-        //
+        $model = ShopProduct::findOrFail($id);
+
+        return view('admin.categories.create', compact('model'));
     }
 
     /**

@@ -64,12 +64,12 @@
                                                 <td class="sorting_1">{{ $item->name }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>
-                                                    <a class="btn btn-block btn-primary" href="{{ route('admin.products.edit', ['category' => $item->id]) }}">
+                                                    <a class="btn btn-block btn-primary" href="{{ route('admin.products.edit', ['product' => $item->id]) }}">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <form method="post" action="{{ route('admin.products.destroy', ['category' => $item->id]) }}">
+                                                    <form method="post" action="{{ route('admin.products.destroy', ['product' => $item->id]) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-block btn-danger">

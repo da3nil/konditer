@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Категории
+            Товары
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -35,19 +35,19 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        @php /** @var $model \App\Models\ShopCategory */ @endphp
+                        @php /** @var $model \App\Models\ShopProduct */ @endphp
                         @if($model->exists)
                             <h3 class="box-title">{{ $model->name }}</h3>
                         @else
-                            <h3 class="box-title">Новая категория</h3>
+                            <h3 class="box-title">Новый товар</h3>
                         @endif
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form enctype="multipart/form-data" role="form" @if($model->exists)
-                        method="post" action="{{ route('admin.categories.update', ['category' => $model->id]) }}"
+                        method="post" action="{{ route('admin.products.update', ['product' => $model->id]) }}"
                     @else
-                        method="post" action="{{ route('admin.categories.store') }}"
+                        method="post" action="{{ route('admin.products.store') }}"
                     @endif>
 
                         @if($model->exists)
