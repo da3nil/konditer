@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Sluggable\HasSlug;
 
 /**
  * App\Models\ShopProduct
@@ -30,8 +32,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ShopProduct extends Model
 {
+
+    use SoftDeletes;
+
+    protected $fillable = ['name', 'description', 'img', 'price', 'shop_category_id'];
+
+    protected $dates = ['deleted_at'];
+
     public function shopCategory(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo('App\Models\ShopProduct');
+        return $this->belongsTo('App\Models\ShopCategory');
     }
 }

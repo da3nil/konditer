@@ -13,7 +13,7 @@ class ShopProductUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class ShopProductUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'              => 'string',
+            'description'       => 'string',
+            'price'             => 'int',
+            'shop_category_id'  => 'exists:shop_categories,id',
+            'img'               => 'image'
         ];
     }
 }

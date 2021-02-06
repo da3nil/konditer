@@ -66,8 +66,8 @@
                                         @foreach($data as $item)
                                             <tr role="row" class="odd">
                                                 <td style="text-align: center; max-width: 180px; width: 180px"><img src="{{ asset('storage/' . $item->img) }}" class="img-fluid" alt=""></td>
-                                                <td>{{ $item->shopCategory->name }}</td>
                                                 <td class="sorting_1">{{ $item->name }}</td>
+                                                <td>{{ $item->shopCategory->name }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>
                                                     <a class="btn btn-block btn-primary" href="{{ route('admin.products.edit', ['product' => $item->id]) }}">

@@ -37,7 +37,7 @@
                     <div class="box-header with-border">
                         @php /** @var $model \App\Models\ShopProduct */ @endphp
                         @if($model->exists)
-                            <h3 class="box-title">{{ $model->name }}</h3>
+                            <h3 class="box-title">Изменить товар "{{ $model->name }}"</h3>
                         @else
                             <h3 class="box-title">Новый товар</h3>
                         @endif
@@ -59,6 +59,24 @@
                             <div class="form-group">
                                 <label for="inputName1">Название</label>
                                 <input type="text" class="form-control" id="inputName1" placeholder="Введите название" name="name" value="{{ $model->name }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputCategory1">Категория</label>
+                                <select id="inputCategory1" class="form-control" name="shop_category_id">
+                                    @if($model->exists)
+                                        @foreach($shopCategories as $category)
+                                            <option @if($model->shopCategory->id === $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    @else
+                                        @foreach($shopCategories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName1">Цена (руб)</label>
+                                <input type="number" class="form-control" id="inputName1" placeholder="Введите цену (руб)" name="price" value="{{ $model->price }}">
                             </div>
                             <div class="form-group">
                                 <label for="inputText1">Описание</label>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ShopProductStoreRequest;
+use App\Http\Requests\ShopProductUpdateRequest;
 use App\Models\ShopCategory;
 use App\Models\ShopProduct;
 use Illuminate\Http\Request;
@@ -32,18 +34,41 @@ class ShopProductController extends Controller
     {
         $model = new ShopProduct();
 
-        return view('admin.products.create', compact('model'));
+        $shopCategories = ShopCategory::all();
+
+        return view('admin.products.create', compact('model', 'shopCategories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\ShopProductStoreRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ShopProductStoreRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $model = (new ShopProduct())->fill($data);
+
+        if (empty($data['img'])) {
+            $model->img = 'shop_products/food_default.png';
+        } else {
+//            $file = request()->file('image');
+//            $file->store('toPath', ['disk' => 'my_files']);
+            $model->img = $request->file('img')->store('shop_products');
+        }
+
+        $result = $model->save();
+
+        if ($result) {
+            return redirect()
+                ->route('admin.products.edit', ['product' => $model->id])
+                ->with(['success' => 'Успешно создано']);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Ошибка сохранения']);
+        }
     }
 
     /**
@@ -67,19 +92,42 @@ class ShopProductController extends Controller
     {
         $model = ShopProduct::findOrFail($id);
 
-        return view('admin.categories.create', compact('model'));
+        $shopCategories = ShopCategory::all();
+
+        return view('admin.products.create', compact('model', 'shopCategories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\ShopProductUpdateRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ShopProductUpdateRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $model = ShopProduct::findOrFail($id);
+
+        $model->fill($data);
+
+        if (empty($data['img'])) {
+            $model->img = 'shop_products/food_default.png';
+        } else {
+            $model->img = $request->file('img')->store('shop_products');
+        }
+
+        $result = $model->save();
+
+        if ($result) {
+            return redirect()
+                ->route('admin.products.edit', ['product' => $model->id])
+                ->with(['success' => 'Успешно сохранено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Ошибка сохранения']);
+        }
     }
 
     /**

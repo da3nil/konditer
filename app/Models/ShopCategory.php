@@ -45,6 +45,6 @@ class ShopCategory extends Model
     }
 
     public function product() {
-        return $this->hasOne('App\Models\ShopCategory');
+        return $this->hasOne('App\Models\ShopProduct');
     }
 }

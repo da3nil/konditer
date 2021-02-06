@@ -19,6 +19,7 @@ class CreateShopProductsTable extends Migration
             $table->text('description');
             $table->bigInteger('price')->default(0);
             $table->text('img');
+            $table->softDeletes();
             $table->unsignedBigInteger('shop_category_id');
             $table->timestamps();
 

@@ -230,7 +230,18 @@
                         <li class="@if((Request::route()->getName() === 'admin.categories.create')) active @endif"><a href="{{ route('admin.categories.create') }}"><i class="fa fa-circle-o"></i> Создать категорию</a></li>
                     </ul>
                 </li>
-                <li @if((Request::is('admin/products/*') || Request::is('admin/products')))class="active"@endif><a href="{{ route('admin.products.index') }}"><i class="fa fa-link"></i> <span>Товары</span></a></li>
+                <li class="@if((Request::is('admin/products/*') || Request::is('admin/products'))) active @endif treeview">
+                    <a href="#">
+                        <i class="fa fa-share"></i> <span>Товары</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="@if((Request::route()->getName() === 'admin.products.index')) active @endif"><a href="{{ route('admin.products.index') }}"><i class="fa fa-circle-o"></i>Все товары</a></li>
+                        <li class="@if((Request::route()->getName() === 'admin.products.create')) active @endif"><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i>Создать товар</a></li>
+                    </ul>
+                </li>
                 <li @if((Request::is('admin/orders/*') || Request::is('admin/orders')))class="active"@endif><a href="{{ route('admin.orders.index') }}"><i class="fa fa-link"></i> <span>Заказы</span></a></li>
                 <li @if((Request::is('admin/users/*') || Request::is('admin/users')))class="active"@endif><a href="{{ route('admin.users.index') }}"><i class="fa fa-link"></i> <span>Пользователи</span></a></li>
                 <li @if((Request::is('admin/blog/*') || Request::is('admin/blog')))class="active"@endif><a href="{{ route('admin.blog.index') }}"><i class="fa fa-link"></i> <span>Новости</span></a></li>

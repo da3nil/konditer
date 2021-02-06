@@ -24,10 +24,11 @@ class ShopProductStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'              => 'required',
-            'description'       => 'text',
+            'name'              => 'required|string',
+            'description'       => 'required|string',
             'price'             => 'int',
-            'shop_category_id'  => ''
+            'shop_category_id'  => 'exists:shop_categories,id',
+            'img'               => 'image'
         ];
     }
 }
