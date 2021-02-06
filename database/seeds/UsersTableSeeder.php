@@ -27,6 +27,6 @@ class UsersTableSeeder extends Seeder
 
         AdminUser::make($data)->save();
 
-        factory(User::class, 5)->create()->make();
+        factory(User::class, 15)->create()->make();
     }
 }

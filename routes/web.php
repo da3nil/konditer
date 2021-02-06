@@ -46,9 +46,7 @@ Route::get('/blog', function () {
 })->name('blog');
 
 Route::group(['prefix' => '/admin', 'name' => 'admin.', 'middleware' => 'auth'], function () {
-    Route::get('/', function (){
-        return view('admin.home');
-    })->name('admin.home');
+    Route::get('/', 'Web\Admin\HomeController')->name('admin.home');
 
     Route::resource('/categories', 'Web\Admin\ShopCategoryController')
         ->names('admin.categories');

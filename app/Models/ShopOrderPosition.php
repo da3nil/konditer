@@ -21,8 +21,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ShopOrderPosition whereShopProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ShopOrderPosition whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\ShopOrder $order
+ * @property-read \App\Models\ShopProduct $product
  */
 class ShopOrderPosition extends Model
 {
-    //
+    public function order() {
+        return $this->belongsTo('App\Models\ShopOrder', 'shop_order_id');
+    }
+
+    public function product() {
+        return $this->belongsTo('App\Models\ShopProduct', 'shop_product_id');
+    }
 }

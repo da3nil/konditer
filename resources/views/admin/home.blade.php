@@ -36,50 +36,23 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <ul class="products-list product-list-in-box">
-                                    <li class="item">
-                                        <div class="product-img">
-                                            <img src="dist/img/default-50x50.gif" alt="Product Image">
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title">Samsung TV
-                                                <span class="label label-warning pull-right">$1800</span></a>
-                                            <span class="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
-                        </span>
-                                        </div>
-                                    </li>
-                                    <!-- /.item -->
-                                    <li class="item">
-                                        <div class="product-img">
-                                            <img src="dist/img/default-50x50.gif" alt="Product Image">
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title">Xbox One <span
-                                                    class="label label-danger pull-right">$350</span></a>
-                                            <span class="product-description">
-                          Xbox One Console Bundle with Halo Master Chief Collection.
-                        </span>
-                                        </div>
-                                    </li>
-                                    <!-- /.item -->
-                                    <li class="item">
-                                        <div class="product-img">
-                                            <img src="dist/img/default-50x50.gif" alt="Product Image">
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title">PlayStation 4
-                                                <span class="label label-success pull-right">$399</span></a>
-                                            <span class="product-description">
-                          PlayStation 4 500GB Console (PS4)
-                        </span>
-                                        </div>
-                                    </li>
-                                    <!-- /.item -->
+                                    @foreach($shopProducts as $product)
+                                        <li class="item">
+                                            <div class="product-img">
+                                                <img src="{{ asset('storage/' . $product->img) }}" alt="Product Image">
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="product-title">{{ $product->name }}
+                                                    <span class="label label-warning pull-right">{{ $product->price }}Р</span></a>
+                                                <span class="product-description">{{ $product->description }}</span>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer text-center">
-                                <a href="javascript:void(0)" class="uppercase">Все товары</a>
+                                <a href="{{ route('admin.products.index') }}" class="uppercase">Все товары</a>
                             </div>
                             <!-- /.box-footer -->
                         </div>
@@ -104,46 +77,13 @@
                             <!-- /.box-header -->
                             <div class="box-body no-padding">
                                 <ul class="users-list clearfix">
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">Alexander Pierce</a>
-                                        <span class="users-list-date">Today</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">Norman</a>
-                                        <span class="users-list-date">Yesterday</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">Jane</a>
-                                        <span class="users-list-date">12 Jan</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">John</a>
-                                        <span class="users-list-date">12 Jan</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">Alexander</a>
-                                        <span class="users-list-date">13 Jan</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">Sarah</a>
-                                        <span class="users-list-date">14 Jan</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">Nora</a>
-                                        <span class="users-list-date">15 Jan</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{ asset('images/user/user.png') }}" alt="User Image">
-                                        <a class="users-list-name" href="#">Nadia</a>
-                                        <span class="users-list-date">15 Jan</span>
-                                    </li>
+                                    @foreach($users as $user)
+                                        <li>
+                                            <img src="{{ asset('images/user/user.png') }}" alt="User Image">
+                                            <a class="users-list-name" href="#">{{ $user->name }}</a>
+                                            <span class="users-list-date">{{$user->created_at->diffForHumans() }}</span>
+                                        </li>
+                                    @endforeach
                                 </ul>
                                 <!-- /.users-list -->
                             </div>
@@ -184,41 +124,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                    <td><span class="label label-success">Отправлено</span></td>
-                                    <td>100₽</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                    <td><span class="label label-warning">В ожидании</span></td>
-                                    <td>100₽</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                    <td><span class="label label-danger">Доставлено</span></td>
-                                    <td>100₽</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                    <td><span class="label label-info">Обработка</span></td>
-                                    <td>100₽</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                    <td><span class="label label-warning">Pending</span></td>
-                                    <td>100₽</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                    <td><span class="label label-danger">Delivered</span></td>
-                                    <td>100₽</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                    <td><span class="label label-success">Shipped</span></td>
-                                    <td>100₽</td>
-                                </tr>
+                                @foreach($shopOrders as $order)
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR{{ $order->id }}</a></td>
+                                        <td><span class="label {{ $order->status->class }}">{{ $order->status->name }}</span></td>
+                                        <td>100₽</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -239,7 +151,7 @@
             <div class="col-md-4">
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3>{{ $shopOrdersCount }}</h3>
 
                         <p>Совершенно заказов</p>
                     </div>
@@ -252,9 +164,9 @@
                 </div>
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>{{ $usersCount }}</h3>
 
-                        <p>Пользователя</p>
+                        <p>Зарегистрировано пользователей</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>

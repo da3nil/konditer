@@ -28,6 +28,13 @@ use Spatie\Sluggable\SlugOptions;
  * @mixin \Eloquent
  * @property string $slug
  * @method static \Illuminate\Database\Eloquent\Builder|ShopCategory whereSlug($value)
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\ShopProduct|null $product
+ * @method static \Illuminate\Database\Query\Builder|ShopCategory onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ShopCategory whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|ShopCategory withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ShopCategory withoutTrashed()
+ * @property-read int|null $product_count
  */
 class ShopCategory extends Model
 {
@@ -45,6 +52,6 @@ class ShopCategory extends Model
     }
 
     public function product() {
-        return $this->hasOne('App\Models\ShopProduct');
+        return $this->hasMany('App\Models\ShopProduct');
     }
 }

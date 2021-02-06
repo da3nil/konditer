@@ -19,8 +19,15 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ShopOrder whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ShopOrder whereUserId($value)
  * @mixin \Eloquent
+ * @property int $shop_order_status_id
+ * @property-read \App\Models\ShopOrderStatus $status
+ * @method static \Illuminate\Database\Eloquent\Builder|ShopOrder whereShopOrderStatusId($value)
  */
 class ShopOrder extends Model
 {
-    //
+    protected $fillable = ['shop_order_status_id'];
+
+    public function status() {
+        return $this->belongsTo('App\Models\ShopOrderStatus', 'shop_order_status_id');
+    }
 }

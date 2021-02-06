@@ -29,6 +29,12 @@ use Spatie\Sluggable\HasSlug;
  * @method static \Illuminate\Database\Eloquent\Builder|ShopProduct whereShopCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ShopProduct whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\ShopCategory $shopCategory
+ * @method static \Illuminate\Database\Query\Builder|ShopProduct onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ShopProduct whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|ShopProduct withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ShopProduct withoutTrashed()
  */
 class ShopProduct extends Model
 {

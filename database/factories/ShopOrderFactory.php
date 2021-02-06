@@ -9,5 +9,6 @@ $factory->define(
     ShopOrder::class, function (Faker $faker) {
     return [
         'user_id' => $faker->numberBetween(1, App\Models\User::count()),
+        'shop_order_status_id' => $faker->numberBetween(1, \App\Models\ShopOrderStatus::count())
     ];
 });
