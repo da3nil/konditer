@@ -97,10 +97,21 @@ class ShopOrderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $model = ShopOrder::findOrFail($id);
+
+        $result = $model->delete();
+
+        if ($result) {
+            return redirect()
+                ->route('admin.orders.index')
+                ->with(['success' => 'Успешно удалено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Ошибка удаления']);
+        }
     }
 }

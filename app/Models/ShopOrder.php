@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\ShopOrder
@@ -38,6 +39,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ShopOrder extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = ['shop_order_status_id', 'user_id'];
 
     public function status() {

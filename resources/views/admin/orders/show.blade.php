@@ -176,12 +176,13 @@
             <!-- this row will not appear when printing -->
             <div class="row no-print">
                 <div class="col-xs-12">
-{{--                    <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>--}}
-{{--                    <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment--}}
-{{--                    </button>--}}
-                    <button type="button" class="btn btn-danger pull-right" style="margin-right: 5px;">
-                        <i class="fa fa-trash"></i> Удалить заказ
-                    </button>
+                    <form method="post" action="{{ route('admin.orders.destroy', ['order' => $model->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger pull-right">
+                            <i class="fa fa-trash"></i> Удалить заказ
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>

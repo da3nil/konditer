@@ -11,6 +11,6 @@ class ShopOrderPositionSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\ShopOrderPosition::class, 30)->create()->make();
+        factory(\App\Models\ShopOrderPosition::class, 60)->create()->make();
     }
 }

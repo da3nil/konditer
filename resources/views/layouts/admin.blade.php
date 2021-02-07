@@ -217,10 +217,10 @@
             <ul class="sidebar-menu tree" data-widget="tree">
                 <li class="header">Меню</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li @if(Request::route()->getName() === 'admin.home')class="active"@endif><a href="{{ route('admin.home') }}"><i class="fa fa-link"></i> <span>Панель управления</span></a></li>
+                <li @if(Request::route()->getName() === 'admin.home')class="active"@endif><a href="{{ route('admin.home') }}"><i class="fa fa-home"></i> <span>Панель управления</span></a></li>
                 <li class="@if((Request::is('admin/categories/*') || Request::is('admin/categories'))) active @endif treeview">
                     <a href="#">
-                        <i class="fa fa-share"></i> <span>Категории</span>
+                        <i class="fa fa-cube"></i> <span>Категории</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -232,7 +232,7 @@
                 </li>
                 <li class="@if((Request::is('admin/products/*') || Request::is('admin/products'))) active @endif treeview">
                     <a href="#">
-                        <i class="fa fa-share"></i> <span>Товары</span>
+                        <i class="fa fa-cube"></i> <span>Товары</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -242,9 +242,9 @@
                         <li class="@if((Request::route()->getName() === 'admin.products.create')) active @endif"><a href="{{ route('admin.products.create') }}"><i class="fa fa-circle-o"></i>Создать товар</a></li>
                     </ul>
                 </li>
-                <li @if((Request::is('admin/orders/*') || Request::is('admin/orders')))class="active"@endif><a href="{{ route('admin.orders.index') }}"><i class="fa fa-link"></i> <span>Заказы</span></a></li>
-                <li @if((Request::is('admin/users/*') || Request::is('admin/users')))class="active"@endif><a href="{{ route('admin.users.index') }}"><i class="fa fa-link"></i> <span>Пользователи</span></a></li>
-                <li @if((Request::is('admin/blog/*') || Request::is('admin/blog')))class="active"@endif><a href="{{ route('admin.blog.index') }}"><i class="fa fa-link"></i> <span>Новости</span></a></li>
+                <li @if((Request::is('admin/orders/*') || Request::is('admin/orders')))class="active"@endif><a href="{{ route('admin.orders.index') }}"><i class="fa fa-shopping-cart"></i> <span>Заказы</span></a></li>
+                <li @if((Request::is('admin/users/*') || Request::is('admin/users')))class="active"@endif><a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> <span>Пользователи</span></a></li>
+                <li @if((Request::is('admin/blog/*') || Request::is('admin/blog')))class="active"@endif><a href="{{ route('admin.blog.index') }}"><i class="fa fa-newspaper-o"></i> <span>Новости</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>

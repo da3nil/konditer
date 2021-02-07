@@ -158,7 +158,7 @@
                     <div class="icon">
                         <i class="fa fa-shopping-cart"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="{{ route('admin.orders.index') }}" class="small-box-footer">
                         Подробнее <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -171,7 +171,7 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="{{ route('admin.users.index') }}" class="small-box-footer">
                         Подробнее <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
