@@ -33,7 +33,7 @@
                     <div class="box-header with-border">
                         @php /** @var $model \App\Models\ShopCategory */ @endphp
                         @if($model->exists)
-                            <h3 class="box-title">{{ $model->name }}</h3>
+                            <h3 class="box-title">Изменить категорию "{{ $model->name }}"</h3>
                         @else
                             <h3 class="box-title">Новая категория</h3>
                         @endif

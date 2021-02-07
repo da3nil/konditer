@@ -34,6 +34,9 @@
                                 <a href="{{ route('login') }}" class="last">Вход</a>
                             @endguest
                             @auth
+                                    @if(Auth::user()->isAdmin())
+                                        <a href="{{ route('admin.home') }}">Админ панель</a>
+                                    @endif
                                     <a href="{{ route('home') }}">Мой профиль</a>
                                     <a href="{{ route('logout') }}" class="last"
                                        onclick="event.preventDefault();

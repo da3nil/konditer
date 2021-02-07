@@ -102,8 +102,9 @@
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu tree" data-widget="tree">
                 <li class="header">Меню</li>
+                <li><a href="{{ route('welcome') }}"><i class="fa fa-home"></i> <span>Главная страница</span></a></li>
                 <!-- Optionally, you can add icons to the links -->
-                <li @if(Request::route()->getName() === 'admin.home')class="active"@endif><a href="{{ route('admin.home') }}"><i class="fa fa-home"></i> <span>Панель управления</span></a></li>
+                <li @if(Request::route()->getName() === 'admin.home')class="active"@endif><a href="{{ route('admin.home') }}"><i class="fa fa-cog"></i> <span>Панель управления</span></a></li>
                 <li class="@if((Request::is('admin/categories/*') || Request::is('admin/categories'))) active @endif treeview">
                     <a href="#">
                         <i class="fa fa-cube"></i> <span>Категории</span>

@@ -36,6 +36,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|ShopOrder whereUserPhone($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ShopOrderPosition[] $products
  * @property-read int|null $products_count
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @method static \Illuminate\Database\Query\Builder|ShopOrder onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ShopOrder whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|ShopOrder withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ShopOrder withoutTrashed()
  */
 class ShopOrder extends Model
 {
