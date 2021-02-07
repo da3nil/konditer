@@ -29,6 +29,16 @@ Route::get('/menu/{slug}', 'Web\ShopCategoryController@show')->name('menu.show')
 
 Route::get('/menu/{id}', 'Web\ShopProductController@show')->name('product.show');
 
+Route::get('/cart/{id}/add', 'Web\CartController@add')->name('cart.add');
+
+Route::delete('/cart/{rowId}/del', 'Web\CartController@del')->name('cart.del');
+
+Route::get('/cart', 'Web\CartController@index')->name('cart.index');
+
+Route::get('/cart/clear', 'Web\CartController@clear')->name('cart.clear');
+
+Route::resource('/order', 'Web\ShopOrderController')->middleware('auth')->names('order');
+
 Route::get('/about', function (){
     return view('info.about');
 })->name('about');

@@ -46,7 +46,7 @@ class ShopOrder extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['shop_order_status_id', 'user_id'];
+    protected $fillable = ['shop_order_status_id', 'user_name', 'user_phone', 'user_address', 'user_email'];
 
     public function status() {
         return $this->belongsTo('App\Models\ShopOrderStatus', 'shop_order_status_id');

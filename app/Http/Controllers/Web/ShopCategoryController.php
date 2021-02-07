@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\ShopProduct;
+Use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\ShopCategory;
 use Illuminate\Http\Request;
@@ -51,6 +53,18 @@ class ShopCategoryController extends Controller
      */
     public function show($slug)
     {
+//        //$product = ShopProduct::findOrFail(1)->toArray();
+//
+////        Cart::add('1', 'Product 1', 1, 300, 100);
+////        Cart::add('2', 'Product 2', 1, 300, 100);
+////        Cart::add('3', 'Product 3', 1, 300, 100);
+//
+////        Cart::store('username2');
+//
+//        //Cart::instance('wishlist')->store('username');
+//
+//        dd(Cart::content());
+
         $category = ShopCategory::whereSlug($slug)->with(['product'])->first();
 
         if ($category === null) {

@@ -11,6 +11,7 @@ namespace PHPSTORM_META {
     */
     override(new \Illuminate\Contracts\Container\Container, map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -46,6 +47,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -57,6 +59,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -164,6 +167,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Container\Container::makeWith(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -199,6 +203,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -210,6 +215,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -317,6 +323,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::get(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -352,6 +359,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -363,6 +371,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -470,6 +479,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -505,6 +515,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -516,6 +527,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -623,6 +635,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -658,6 +671,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -669,6 +683,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -776,6 +791,7 @@ namespace PHPSTORM_META {
         ]));
     override(\App::get(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -811,6 +827,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -822,6 +839,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -929,6 +947,7 @@ namespace PHPSTORM_META {
         ]));
     override(\App::make(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -964,6 +983,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -975,6 +995,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -1082,6 +1103,7 @@ namespace PHPSTORM_META {
         ]));
     override(\App::makeWith(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -1117,6 +1139,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -1128,6 +1151,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -1235,6 +1259,7 @@ namespace PHPSTORM_META {
         ]));
     override(\app(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -1270,6 +1295,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -1281,6 +1307,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -1388,6 +1415,7 @@ namespace PHPSTORM_META {
         ]));
     override(\resolve(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -1423,6 +1451,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -1434,6 +1463,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,
@@ -1541,6 +1571,7 @@ namespace PHPSTORM_META {
         ]));
     override(\Psr\Container\ContainerInterface::get(0), map([
         '' => '@',
+            'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,
             'Facade\IgnitionContracts\SolutionProviderRepository' => \Facade\Ignition\SolutionProviders\SolutionProviderRepository::class,
             'Facade\Ignition\DumpRecorder\DumpRecorder' => \Facade\Ignition\DumpRecorder\DumpRecorder::class,
             'Facade\Ignition\ErrorPage\Renderer' => \Facade\Ignition\ErrorPage\Renderer::class,
@@ -1576,6 +1607,7 @@ namespace PHPSTORM_META {
             'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
             'cache' => \Illuminate\Cache\CacheManager::class,
             'cache.store' => \Illuminate\Cache\Repository::class,
+            'cart' => \Gloudemans\Shoppingcart\Cart::class,
             'command.auth.resets.clear' => \Illuminate\Auth\Console\ClearResetsCommand::class,
             'command.cache.clear' => \Illuminate\Cache\Console\ClearCommand::class,
             'command.cache.forget' => \Illuminate\Cache\Console\ForgetCommand::class,
@@ -1587,6 +1619,7 @@ namespace PHPSTORM_META {
             'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
             'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
             'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
+            'command.debugbar.clear' => \Barryvdh\Debugbar\Console\ClearCommand::class,
             'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
             'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
             'command.event.cache' => \Illuminate\Foundation\Console\EventCacheCommand::class,

@@ -122,7 +122,7 @@
                                 <tbody>
                                 @foreach($shopOrders as $order)
                                     <tr>
-                                        <td><a href="pages/examples/invoice.html">OR{{ $order->id }}</a></td>
+                                        <td><a href="{{ route('admin.orders.show', ['order' => $order->id]) }}">OR{{ $order->id }}</a></td>
                                         <td><span class="label label-{{ $order->status->class }}">{{ $order->status->name }}</span></td>
                                         <td>{{ $order->price }}₽</td>
                                     </tr>

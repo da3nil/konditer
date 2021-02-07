@@ -9,13 +9,25 @@ class ShopOrderObserver
 {
     public function creating(ShopOrder $shopOrder)
     {
-        if ($shopOrder->isDirty('user_id')) {
-            if ($shopOrder->user_id !== 0) {
-                $user = User::findOrFail($shopOrder->user_id);
-                $shopOrder->user_name = $user->name;
-                $shopOrder->user_email = $user->email;
-            }
+        if ($shopOrder->isClean('user_id')) {
+            $shopOrder->user_id = \Auth::user()->id;
         }
+
+        if ($shopOrder->isClean('shop_order_status_id')) {
+            $shopOrder->shop_order_status_id = 1;
+        }
+
+//        if($shopOrder->isDirty(['user_name', 'user_email'])) {
+//
+//        }
+//
+//        if ($shopOrder->isDirty('user_id')) {
+//            if ($shopOrder->user_id !== 0) {
+//                $user = User::findOrFail($shopOrder->user_id);
+//                $shopOrder->user_name = $user->name;
+//                $shopOrder->user_email = $user->email;
+//            }
+//        }
     }
 
     /**

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ShopOrderStoreRequest;
+use App\Http\Requests\ShopOrderUpdateRequest;
+use App\Models\ShopOrder;
+use App\Models\ShopOrderPosition;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class ShopOrderController extends Controller
@@ -30,12 +35,31 @@ class ShopOrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\ShopOrderStoreRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ShopOrderStoreRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $order = (new ShopOrder())->fill($data);
+
+        $order->save();
+
+        $products = Cart::content();
+
+        foreach ($products as $product) {
+            for ($i = 0; $i < $product->qty; $i++) {
+                $orderPosition = new ShopOrderPosition();
+                $orderPosition->shop_order_id = $order->id;
+                $orderPosition->shop_product_id = $product->model->id;
+                $orderPosition->save();
+            }
+        }
+
+        Cart::destroy();
+
+        return back()->with(['success' => 'Ваш заказ принят.']);
     }
 
     /**

@@ -29,15 +29,22 @@
                     </div>
                     <div>
                         <div>
+                            <a href="{{ route('cart.index') }}" class="last position-relative">
+                                @if(\Gloudemans\Shoppingcart\Facades\Cart::count() > 0)
+                                    <span class="badge badge-pill badge-danger position-absolute" style="right: -5px; top: -9px">{{ \Gloudemans\Shoppingcart\Facades\Cart::count() }}</span>
+                                @endif
+                                Корзина
+                                <i class="fa fa-shopping-cart pl-0 fa-bold"></i>
+                            </a>
                             @guest
-                                <a href="{{ route('register') }}">Регистрация</a>
+                                <a href="{{ route('register') }}" class="last">Регистрация</a>
                                 <a href="{{ route('login') }}" class="last">Вход</a>
                             @endguest
                             @auth
                                     @if(Auth::user()->isAdmin())
-                                        <a href="{{ route('admin.home') }}">Админ панель</a>
+                                        <a href="{{ route('admin.home') }}" class="last">Админ панель</a>
                                     @endif
-                                    <a href="{{ route('home') }}">Мой профиль</a>
+                                    <a href="{{ route('home') }}" class="last">Мой профиль</a>
                                     <a href="{{ route('logout') }}" class="last"
                                        onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">{{ __('Выход') }}</a>

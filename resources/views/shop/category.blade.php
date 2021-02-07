@@ -3,7 +3,7 @@
 @section('content')
     <div>
         <div id="category_index" class="p-0">
-            <h1>Меню</h1>
+            <h1>{{ $category->name }}</h1>
             <ul>
                 @php /** @var $item \App\Models\ShopProduct */@endphp
                 @foreach($products as $item)
@@ -12,7 +12,7 @@
                             <div class="col position-relative">
                                 <h2><a href="">{{ $item->name }}</a></h2>
                                 <p>{{ $item->description }}</p>
-                                <a href="{{ route('product.show', ['id' => $item->id]) }}" style="bottom: 0" class="view position-absolute">Добавить в корзину</a>
+                                <a href="{{ route('cart.add', ['id' => $item->id]) }}" style="bottom: 0" class="view position-absolute">Добавить в корзину</a>
                             </div>
                             <div class="col position-relative d-flex flex-column justify-content-center" style="left: 0">
                                 <img class="img-fluid" src="{{ asset('storage/' . $item->img) }}" alt="Image">

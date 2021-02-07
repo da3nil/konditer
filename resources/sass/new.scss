@@ -50,3 +50,26 @@
         font-size: 12px !important;
     }
 }
+
+#header div div div div a {
+    padding-right: 0.5rem !important;
+    font-size: 1rem !important;
+}
+
+#header div div div div {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+#content div ul li div div {
+    height: 240px !important;
+
+    & img {
+        height: 215px !important;
+    }
+}
+
+.modal-backdrop {
+    height: 100%;
+    width: 100%;
+}
