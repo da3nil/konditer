@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ShopOrderUpdateRequest;
+use App\Models\ShopOrder;
+use App\Models\ShopOrderStatus;
 use Illuminate\Http\Request;
 
 class ShopOrderController extends Controller
@@ -10,11 +13,13 @@ class ShopOrderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $data = ShopOrder::with('status')->paginate(10);
+
+        return view('admin.orders.index', compact('data'));
     }
 
     /**
@@ -42,11 +47,15 @@ class ShopOrderController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function show($id)
     {
-        //
+        $model = ShopOrder::with(['user', 'status', 'products'])->findOrFail($id);
+
+        $statuses = ShopOrderStatus::all();
+
+        return view('admin.orders.show', compact('model', 'statuses'));
     }
 
     /**
@@ -65,11 +74,23 @@ class ShopOrderController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ShopOrderUpdateRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $model = ShopOrder::findOrFail($id);
+
+        $result = $model->update($data);
+
+        if ($result) {
+            return back()
+                ->with(['success' => 'Успешно обновлено']);
+        } else {
+            return back()
+                ->withErrors(['msg' => 'Ошибка обновления']);
+        }
     }
 
     /**

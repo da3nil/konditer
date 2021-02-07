@@ -31,6 +31,6 @@ class ShopOrderPosition extends Model
     }
 
     public function product() {
-        return $this->belongsTo('App\Models\ShopProduct', 'shop_product_id');
+        return $this->belongsTo('App\Models\ShopProduct', 'shop_product_id')->with(['shopCategory']);
     }
 }

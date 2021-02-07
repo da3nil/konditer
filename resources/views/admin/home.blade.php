@@ -43,7 +43,7 @@
                                             </div>
                                             <div class="product-info">
                                                 <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="product-title">{{ $product->name }}
-                                                    <span class="label label-warning pull-right">{{ $product->price }}Р</span></a>
+                                                    <span class="label label-warning pull-right">{{ $product->price }}₽</span></a>
                                                 <span class="product-description">{{ $product->description }}</span>
                                             </div>
                                         </li>
@@ -127,8 +127,8 @@
                                 @foreach($shopOrders as $order)
                                     <tr>
                                         <td><a href="pages/examples/invoice.html">OR{{ $order->id }}</a></td>
-                                        <td><span class="label {{ $order->status->class }}">{{ $order->status->name }}</span></td>
-                                        <td>100₽</td>
+                                        <td><span class="label label-{{ $order->status->class }}">{{ $order->status->name }}</span></td>
+                                        <td>{{ $order->price }}₽</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -140,7 +140,7 @@
                     <div class="box-footer clearfix">
                         {{--                            <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New--}}
                         {{--                                Order</a>--}}
-                        <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Все заявки</a>
+                        <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-default btn-flat pull-right">Все заявки</a>
                     </div>
                     <!-- /.box-footer -->
                 </div>

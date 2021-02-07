@@ -15,19 +15,19 @@ class ShopOrderStatusesTableSeeder extends Seeder
         $data = [
             [
                 'name'  => 'В ожидании',
-                'class' => 'label-warning'
+                'class' => 'warning'
             ],
             [
                 'name'  => 'Обработка',
-                'class' => 'label-info'
+                'class' => 'info'
             ],
             [
                 'name'  => 'Отправлено',
-                'class' => 'label-info'
+                'class' => 'info'
             ],
             [
                 'name'  => 'Доставлено',
-                'class' => 'label-success'
+                'class' => 'success'
             ],
         ];
 
