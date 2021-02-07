@@ -64,7 +64,7 @@
                         </tbody>
                     </table>
                 @else
-                    <div class="alert alert-info text-center m-0 w-100" style="font-size: 1rem" role="alert">
+                    <div class="alert alert-info text-center m-0 w-100" style="font-size: 1rem; padding: 1rem" role="alert">
                         Ваша корзина <b>пуста</b>.
                     </div>
                 @endif

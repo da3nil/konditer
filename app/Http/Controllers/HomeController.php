@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ShopOrder;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $orders = ShopOrder::with('status')->where('user_id', \Auth::user()->id)->get();
+
+        return view('home', compact('orders'));
     }
 }

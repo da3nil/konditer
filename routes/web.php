@@ -51,9 +51,7 @@ Route::get('/contact', function () {
     return view('info.contact');
 })->name('contact');
 
-Route::get('/blog', function () {
-
-})->name('blog');
+Route::get('/blog', 'Web\BlogController')->name('blog');
 
 Route::group(['prefix' => '/admin', 'name' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', 'Web\Admin\HomeController')->name('admin.home');

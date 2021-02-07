@@ -72,4 +72,9 @@ class User extends Authenticatable
     {
         return AdminUser::where('user_id', '=', \Auth::id())->exists();
     }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Models\ShopOrder');
+    }
 }
