@@ -21390,3 +21390,9 @@ hr {
   max-width: 150px;
 }
 
+@media screen and (max-width: 767px) {
+  .d-none-phone {
+    display: none !important;
+  }
+}
+

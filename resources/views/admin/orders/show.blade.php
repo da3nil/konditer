@@ -39,10 +39,6 @@
             Заказ OR{{ $model->id }}
             <small><button class="btn btn-block btn-info btn-lg" data-toggle="modal" data-target="#change-status">Изменить статус заказа</button></small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-        </ol>
     </section>
 
     <section class="content">

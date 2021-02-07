@@ -8,10 +8,6 @@
             <small><a href="{{ route('admin.categories.create') }}" class="btn btn-block btn-info btn-lg">Добавить категорию</a></small>
 
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-            <li class="active">Here</li>
-        </ol>
     </section>
 
     <section class="content">
@@ -34,7 +30,7 @@
                                            aria-describedby="example2_info">
                                         <thead>
                                         <tr role="row">
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                            <th class="sorting d-none-phone" tabindex="0" aria-controls="example2" rowspan="1"
                                                 colspan="1" aria-label="Platform(s): activate to sort column ascending">
                                                 Картинка
                                             </th>
@@ -43,7 +39,7 @@
                                                 aria-label="Rendering engine: activate to sort column descending">
                                                 Название
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                            <th class="sorting d-none-phone" tabindex="0" aria-controls="example2" rowspan="1"
                                                 colspan="1" aria-label="Browser: activate to sort column ascending">
                                                 Описание
                                             </th>
@@ -60,9 +56,9 @@
                                         @php /** @var $item \App\Models\ShopCategory */ @endphp
                                         @foreach($data as $item)
                                             <tr role="row" class="odd">
-                                                <td style="text-align: center; max-width: 180px; width: 180px"><img src="{{ asset('storage/' . $item->img) }}" class="img-fluid" alt=""></td>
+                                                <td class="d-none-phone" style="text-align: center; max-width: 180px; width: 180px"><img src="{{ asset('storage/' . $item->img) }}" class="img-fluid" alt=""></td>
                                                 <td class="sorting_1">{{ $item->name }}</td>
-                                                <td>{{ $item->description }}</td>
+                                                <td class="d-none-phone">{{ $item->description }}</td>
                                                 <td>
                                                     <a class="btn btn-block btn-primary" href="{{ route('admin.categories.edit', ['category' => $item->id]) }}">
                                                         <i class="fa fa-edit"></i>
@@ -83,9 +79,9 @@
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                            <th rowspan="1" colspan="1">Картинка</th>
+                                            <th class="d-none-phone" rowspan="1" colspan="1">Картинка</th>
                                             <th rowspan="1" colspan="1">Название</th>
-                                            <th rowspan="1" colspan="1">Описание</th>
+                                            <th class="d-none-phone" rowspan="1" colspan="1">Описание</th>
                                             <th rowspan="1" colspan="1"></th>
                                             <th rowspan="1" colspan="1"></th>
                                         </tr>
