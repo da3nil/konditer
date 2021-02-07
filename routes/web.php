@@ -27,7 +27,7 @@ Route::get('/menu', 'Web\ShopCategoryController@index')->name('menu.index');
 
 Route::get('/menu/{slug}', 'Web\ShopCategoryController@show')->name('menu.show');
 
-Route::get('/menu/{id}', 'Web\ShopProductController@show')->name('category.show');
+Route::get('/menu/{id}', 'Web\ShopProductController@show')->name('product.show');
 
 Route::get('/about', function (){
     return view('info.about');

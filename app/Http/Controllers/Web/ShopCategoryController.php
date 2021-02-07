@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\ShopCategory;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class ShopCategoryController extends Controller
 {
@@ -44,12 +46,26 @@ class ShopCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  string  $slug
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $category = ShopCategory::whereSlug($slug)->with(['product'])->first();
+
+        if ($category === null) {
+            abort(404);
+        }
+
+        $perPage = 10; $page = null; $options = [];
+
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+
+        $products = new LengthAwarePaginator($category->product->forPage($page, $perPage), $category->product->count(), $perPage, $page, $options);
+
+        $products->setPath($slug);
+
+        return view('shop.category', compact('category', 'products'));
     }
 
     /**

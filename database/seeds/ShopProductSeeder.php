@@ -12,6 +12,6 @@ class ShopProductSeeder extends Seeder
      */
     public function run()
     {
-        factory(ShopProduct::class, 45)->create()->make();
+        factory(ShopProduct::class, 345)->create()->make();
     }
 }

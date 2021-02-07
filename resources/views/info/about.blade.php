@@ -16,7 +16,7 @@
             <div id="visitshop">
                 <div>
                     <p><span>Сладости для всей<br> семьи</span></p>
-                    <a href="product.html" class="visit">Меню</a>
+                    <a href="{{ route('menu.index') }}" class="visit">Меню</a>
                 </div>
             </div>
             <div>
