@@ -15,7 +15,7 @@
                                 <a href="{{ route('menu.show', ['slug' => $item->slug]) }}" class="view">Подробнее</a>
                             </div>
                             <div class="col position-relative d-flex flex-column justify-content-center" style="left: 0">
-                                <img class="img-fluid" src="{{ asset('storage/' . $item->img) }}" alt="Image">
+                                <img class="img-fluid" src="{{ asset($item->img) }}" alt="Image">
                             </div>
                         </div>
                     </li>

@@ -35,7 +35,7 @@
                                     @foreach($shopProducts as $product)
                                         <li class="item">
                                             <div class="product-img">
-                                                <img src="{{ asset('storage/' . $product->img) }}" alt="Product Image">
+                                                <img src="{{ asset($product->img) }}" alt="Product Image">
                                             </div>
                                             <div class="product-info">
                                                 <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="product-title">{{ $product->name }}

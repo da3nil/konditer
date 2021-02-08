@@ -39,7 +39,7 @@
                         <tbody>
                         @foreach (Cart::content() as $item)
                             <tr>
-                                <td style="text-align: center; max-width: 110px; width: 140px"><img src="{{ asset('storage/' . $item->model->img) }}" class="img-fluid" alt=""></td>
+                                <td style="text-align: center; max-width: 110px; width: 140px"><img src="{{ asset($item->model->img) }}" class="img-fluid" alt=""></td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->qty }}</td>
                                 <td>{{ $item->price }} руб.</td>

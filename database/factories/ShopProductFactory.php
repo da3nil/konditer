@@ -9,7 +9,7 @@ $factory->define(ShopProduct::class, function (Faker $faker) {
     return [
         'name'          =>  $faker->word,
         'description'   =>  $faker->text,
-        'img'           =>  'shop_products/food_default.png',
+        'img'           =>  'images/food_default.png',
         'price'         =>  $faker->numberBetween(100, 300),
         'shop_category_id'  =>  $faker->numberBetween(1, App\Models\ShopCategory::count()),
     ];

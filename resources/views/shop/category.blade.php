@@ -15,7 +15,7 @@
                                 <a href="{{ route('cart.add', ['id' => $item->id]) }}" style="bottom: 0" class="view position-absolute">Добавить в корзину</a>
                             </div>
                             <div class="col position-relative d-flex flex-column justify-content-center" style="left: 0">
-                                <img class="img-fluid" src="{{ asset('storage/' . $item->img) }}" alt="Image">
+                                <img class="img-fluid" src="{{ asset($item->img) }}" alt="Image">
                                 <span class="text-center">Цена: {{ $item->price }}₽</span>
                             </div>
                         </div>

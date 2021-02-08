@@ -46,11 +46,11 @@ class ShopCategoryController extends Controller
         $model = (new ShopCategory())->fill($data);
 
         if (empty($data['img'])) {
-            $model->img = 'shop_categories/food_default.png';
+            $model->img = 'images/food_default.png';
         } else {
 //            $file = request()->file('image');
 //            $file->store('toPath', ['disk' => 'my_files']);
-            $model->img = $request->file('img')->store('shop_categories');
+            $model->img = 'storage/' . $request->file('img')->store('shop_categories');
         }
 
         $result = $model->save();
@@ -107,9 +107,9 @@ class ShopCategoryController extends Controller
         $model->fill($data);
 
         if (empty($data['img'])) {
-            $model->img = 'shop_categories/food_default.png';
+//            $model->img = 'images/food_default.png';
         } else {
-            $model->img = $request->file('img')->store('shop_categories');
+            $model->img = 'storage/' . $request->file('img')->store('shop_categories');
         }
 
         $result = $model->save();

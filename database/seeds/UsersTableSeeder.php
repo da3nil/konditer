@@ -14,8 +14,16 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $data = [
-            'name'      =>  'admin',
+            'name'      =>  'Danil',
             'email'     =>  'd.prytckov@yandex.ru',
+            'password'  =>  Hash::make('password')
+        ];
+
+        User::make($data)->save();
+
+        $data = [
+            'name'      =>  'Igor',
+            'email'     =>  'admin@candyshop.ru',
             'password'  =>  Hash::make('password')
         ];
 
@@ -27,6 +35,12 @@ class UsersTableSeeder extends Seeder
 
         AdminUser::make($data)->save();
 
-        factory(User::class, 15)->create()->make();
+        $data = [
+            'user_id' => 2,
+        ];
+
+        AdminUser::make($data)->save();
+
+//        factory(User::class, 15)->create()->make();
     }
 }

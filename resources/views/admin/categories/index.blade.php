@@ -56,7 +56,7 @@
                                         @php /** @var $item \App\Models\ShopCategory */ @endphp
                                         @foreach($data as $item)
                                             <tr role="row" class="odd">
-                                                <td class="d-none-phone" style="text-align: center; max-width: 180px; width: 180px"><img src="{{ asset('storage/' . $item->img) }}" class="img-fluid" alt=""></td>
+                                                <td class="d-none-phone" style="text-align: center; max-width: 180px; width: 180px"><img src="{{ asset($item->img) }}" class="img-fluid" alt=""></td>
                                                 <td class="sorting_1">{{ $item->name }}</td>
                                                 <td class="d-none-phone">{{ $item->description }}</td>
                                                 <td>

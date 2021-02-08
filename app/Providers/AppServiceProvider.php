@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Models\ShopOrder;
 use App\Models\ShopOrderPosition;
+use App\Models\ShopProduct;
 use App\Observers\ShopOrderObserver;
 use App\Observers\ShopOrderPositionObserver;
+use App\Observers\ShopProductObserver;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
@@ -32,5 +34,6 @@ class AppServiceProvider extends ServiceProvider
     {
         ShopOrderPosition::observe(ShopOrderPositionObserver::class);
         ShopOrder::observe(ShopOrderObserver::class);
+        ShopProduct::observe(ShopProductObserver::class);
     }
 }
