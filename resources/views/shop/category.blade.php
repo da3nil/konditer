@@ -12,11 +12,11 @@
                             <div class="col position-relative">
                                 <h2><a href="">{{ $item->name }}</a></h2>
                                 <p>{{ $item->description }}</p>
-                                <a href="{{ route('cart.add', ['id' => $item->id]) }}" style="bottom: 0" class="view position-absolute">Добавить в корзину</a>
+                                <a href="{{ route('cart.add', ['id' => $item->id]) }}" style="bottom: 0" class="view position-absolute">В корзину</a>
                             </div>
                             <div class="col position-relative d-flex flex-column justify-content-center" style="left: 0">
                                 <img class="img-fluid" src="{{ asset($item->img) }}" alt="Image">
-                                <span class="text-center">Цена: {{ $item->price }}₽</span>
+                                <span class="text-center">Цена: {{ $item->price }} руб.</span>
                             </div>
                         </div>
                     </li>

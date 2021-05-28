@@ -106,11 +106,12 @@ class ShopCategoryController extends Controller
 
         $model->fill($data);
 
-        if (empty($data['img'])) {
-//            $model->img = 'images/food_default.png';
-        } else {
-            $model->img = 'storage/' . $request->file('img')->store('shop_categories');
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $path = $image->store('img', 'public');
+            $model->img = 'storage/' . $path;
         }
+
 
         $result = $model->save();
 
