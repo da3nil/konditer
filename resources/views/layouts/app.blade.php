@@ -66,7 +66,7 @@
                     <li @if(Request::route()->getName() === "about")class="current"@endif><a href="{{ route('about') }}">О нас</a></li>
                     <li @if(Request::route()->getName() === "service")class="current"@endif><a href="{{ route('service') }}">Сервисы</a></li>
                     <li @if(Request::route()->getName() === "blog")class="current"@endif><a href="{{ route('blog') }}">Новости</a></li>
-                    <li @if(Request::route()->getName() === "contact")class="current"@endif><a href="{{ route('contact') }}">Связь с нами</a></li>
+                    <li @if(Request::route()->getName() === "contact")class="current"@endif><a href="{{ route('contact') }}" style="text-transform: inherit;">Связь с нами</a></li>
                 </ul>
                 @if(Request::route()->getName() === "welcome")
                 <div id="section" class="content-box">
